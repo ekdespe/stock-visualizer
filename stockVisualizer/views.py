@@ -4,17 +4,18 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import StockData
+from decouple import config
+
+APIKEY = config("APIKEY")
 
 import requests
 import json
 
 
-APIKEY = 'ZJJZ1A1TATW4QWWZ'
-#replace 'my_alphav_api_key' with your actual Alpha Vantage API key obtained from https://www.alphavantage.co/support/#api-key
+
 
 
 DATABASE_ACCESS = True 
-#if False, the app will always query the Alpha Vantage APIs regardless of whether the stock data for a given ticker is already in the local database
 
 
 #view function for rendering home.html
